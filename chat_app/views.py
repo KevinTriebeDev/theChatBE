@@ -4,6 +4,11 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
 from .models import Chat
+from django.shortcuts import render
+
+
+def index(request):
+    return render(request, "chat_app/index.html")
 
 
 @require_http_methods(["GET", "POST"])

@@ -17,7 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from chat_app.views import index
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('chat_app.urls')),
+    path("", index, name="index"),
+    path("admin/", admin.site.urls),
+    path("api/", include("chat_app.urls")),
 ]
+
+# The following duplicate urlpatterns block should be removed to avoid conflicts.
